@@ -2,7 +2,7 @@
 name = "totp-generator"
 version = "0.1.0"
 description = ""
-authors = ["Slay <kirill22971222@gmail.com>"]
+authors = ["Slay"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
