@@ -10,7 +10,7 @@ def generate_totp(secret_key):
         totp = pyotp.TOTP(secret_key)
         return totp.now()
     except Exception as e:
-        st.error(f"Ошибка: {e}")
+        st.error(f"Error: {e}")
         return None
 
 
@@ -21,11 +21,9 @@ secret_key = st.text_input('Input your secret key:')
 if secret_key:
     totp_code = generate_totp(secret_key)
 
-    if totp_code:
-        if st.button(f'TOTP-code: **{totp_code}**'):
-            pyperclip.copy(totp_code)
-            st.success("Copied to clipboard!")
+    st.code(totp_code)
 
+    if totp_code:
         time_left = 30 - int(time.time()) % 30
         st.write(f'New code in: {time_left} sec')
 
